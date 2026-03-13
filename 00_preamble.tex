@@ -1,0 +1,126 @@
+\usepackage[utf8]{inputenc}
+\usepackage[most]{tcolorbox}
+\usepackage[noframe]{showframe}
+\usepackage{mwe}
+\usepackage{scrlayer-scrpage}
+\usepackage{hyphenat}
+\usepackage{fontaxes}
+\usepackage{fwlw}
+\usepackage{hanging}
+\usepackage{hyperref}
+\usepackage[bottom,splitrule,hang,flushmargin]{footmisc}
+
+\usepackage[
+    protrusion=true,
+    expansion=true,
+    spacing=true,
+    tracking=smallcaps,
+    kerning=true,
+    letterspace=200,
+]{microtype}
+
+\KOMAoptions{
+    paper=5.5in:8.95in,
+    fontsize=11pt,
+    egregdoesnotlikesansseriftitles,
+    headings=small,
+    headings=optiontohead,
+    %BCOR=5mm,
+    DIV=13,
+    parskip=false,
+    footnotes=multiple,
+    twoside=false,
+}
+
+% HEADER
+\setlength{\headsep}{0.15\baselineskip}
+\setlength{\headheight}{4\baselineskip}
+\setkomafont{pagehead}{\normalfont}
+%%% \*head[<for 'plain' page>]{<for 'scrheadings' page>}
+\ihead[]{}
+\chead[(\space{\oldstylenums{\thepage}}\space)\\]{(\space{\oldstylenums{\thepage}}\space)}
+\ohead[{\large\textit{Numb.}~\oldstylenums{\Number}}.\\{\footnotesize\itshape Beginning the Fifth Year.}]{}
+
+%%% Fill in the blanks
+\lehead{}
+\rohead{}
+\lohead{}
+\rehead{}
+
+% FOOTER and FOOTNOTE
+\setlength{\footskip}{1.5\baselineskip}
+\setkomafont{pagefoot}{\normalfont}
+%%% \*foot[<for 'plain' page>]{<for 'scrheadings' page>}
+\ofoot[\usebox\NextWordBox]{\usebox\NextWordBox}
+%\efoot[\usebox\NextWordBox]{\usebox\NextWordBox}
+\cfoot[\lsstyle Kkkk]{}
+%\ifoot[]{}
+\setfootnoterule[]{\textwidth}
+
+% FONT
+%\usepackage[osf]{Baskervaldx}
+%\usepackage[cmintegrals,cmbraces]{newtxmath}
+%\usepackage{ebgaramond-maths}
+%\usepackage{imfellEnglish}
+%\usepackage[T1]{fontenc}
+\usepackage[veryoldstyle]{kpfonts}
+\usepackage[T1]{fontenc}
+
+% SECTION HEADINGS
+\setcounter{secnumdepth}{1}
+\let\raggedsection\centering
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand\sectionformat{\liningfigures{\thesection}.\enskip}
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+\renewcommand\subsectionformat{\thesubsection.\enskip}
+
+\setkomafont{section}{\bfseries}
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=1\baselineskip,
+  afterskip=.25\baselineskip]{section}
+
+\setkomafont{subsection}{\normalfont\itshape}
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=1\baselineskip,
+  afterskip=.25\baselineskip]{subsection}
+
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=.5\baselineskip,
+  afterskip=.25\baselineskip]{subsubsection}
+  
+\RedeclareSectionCommand[
+  runin=true,
+  %afterindent=false,
+  beforeskip=.5\baselineskip,
+  afterskip=1em]{paragraph}
+
+\RedeclareSectionCommand[
+  runin=true,
+  %afterindent=false,
+  beforeskip=.5\baselineskip,
+  afterskip=1em]{subparagraph}
+
+% LETTRINE
+\usepackage{lettrine}
+\setlength{\emergencystretch}{2pt}
+\def\drop #1#2 {% note the space before {
+  \lettrine[lines=2,loversize=0.1,nindent=2pt]{#1}{#2} % a trailing space
+}
+
+\newenvironment{hangcontent}
+  {\list{}{
+     \itemindent=-.5cm
+     \leftmargin=.5cm
+     \rightmargin=0cm
+     \topsep=0pt
+     \partopsep=0pt
+   }\item\relax}
+  {\endlist}
+
+\raggedbottom
